@@ -1,0 +1,46 @@
+.main {
+  height: 40rem;
+  .left-section {
+    margin-top: 6rem;
+    padding-left: 3rem;
+    .title {
+      h1 {
+        font : {
+          size: 4rem;
+          weight: 700;
+        }
+      }
+      span {
+        color: #1dbec5;
+      }
+      p {
+        margin-bottom: 5rem;
+      }
+    }
+    .actions {
+      .register {
+        button {
+          width: 15rem;
+          i {
+            margin-right: 10px;
+          }
+        }
+      }
+      .login {
+        p {
+          font-size: 18px;
+        }
+        button {
+          width: 15rem;
+          i {
+            margin-right: 10px;
+          }
+        }
+      }
+    }
+  }
+  .right-section {
+    background-image: url(https://play-lh.googleusercontent.com/3XSY8xxdC7d-YpfDO5b48S4NAd5ZhwHClh4YXOyT45OT6HZUlOoImadMdAol_xmmtBA);
+    background-size: contain;
+  }
+}
