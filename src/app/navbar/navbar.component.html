@@ -1,8 +1,11 @@
-<div class="container-fluid d-flex justify-content-between">
+<div class="container-fluid d-flex justify-content-between nav">
   <div class="logo">
-    <h1><i class="fas fa-home"></i>HomeBudget</h1>
+    <a routerLink="/home">
+      <h1><i class="fas fa-home"></i>HomeBudget</h1>
+    </a>
   </div>
   <div class="user-status">
-    <p>buttons for login and register</p>
+    <button class="btn btn-primary login" [routerLink]="'/login'">login</button>
+    <button class="btn btn-primary register" [routerLink]="'/register'">register</button>
   </div>
 </div>

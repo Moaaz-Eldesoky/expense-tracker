@@ -1,1 +1,37 @@
-<p>login works!</p>
+<div class="container-fluid">
+  <div class="row main">
+    <div class="col-6 left-section ">
+      <div class="title">
+        <h1>Welcome to your, <span>Home</span></h1>
+        <p>Harry to Login now we miss you </p>
+      </div>
+      <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+        <div class="email">
+          <label for="email">email</label>
+          <input type="email" name="email" formControlName="email" placeholder="Enter your email"
+            class="form form-control">
+          <div class="error" *ngIf="loginForm.get('email')?.touched && loginForm.get('email')?.errors">
+            <p class="alert" *ngIf="loginForm.get('email')?.errors?.['required']">
+              Email is required
+            </p>
+            <p class="alert" *ngIf="loginForm.get('email')?.errors?.['email']">invalid Email</p>
+          </div>
+        </div>
+        <div class="password">
+          <label for="password">Password</label>
+          <input type="password" name="password" formControlName="password" placeholder="Enter your password"
+            class="form form-control">
+          <div class="error" *ngIf="loginForm.get('password')?.touched&& loginForm.get('password')?.errors">
+            <p class="alert">
+              password is required
+            </p>
+          </div>
+        </div>
+        <div class="d-flex justify-content-center submit-button">
+          <button type="submit" class="btn btn-primary mt-4">Login</button>
+        </div>
+      </form>
+    </div>
+    <div class="col-6 right-section"></div>
+  </div>
+</div>

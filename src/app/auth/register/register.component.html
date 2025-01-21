@@ -1,1 +1,51 @@
-<p>register works!</p>
+<div class="container-fluid">
+  <div class="row main">
+    <div class="col-6 left-section ">
+      <div class="title">
+        <h1>Join Our <span>Family</span></h1>
+        <p>Register now to Start your Journey</p>
+      </div>
+      <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+        <div class="formGroup">
+          <div class="email">
+            <label for="email">Email</label>
+            <input type="email" formControlName="email" class=" form form-control " id="email"
+              placeholder="Enter Email">
+            <div class="error" *ngIf="registerForm.get('email')?.touched && registerForm.get('email')?.invalid">
+              <div class="alert">
+                <p *ngIf="registerForm.get('email')?.errors?.['required']">
+                  Email is required
+                </p>
+                <p *ngIf="registerForm.get('email')?.errors?.['email']">
+                  Email is invalid
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="password">
+            <label for="password">Password</label>
+            <input type="password" formControlName="password" class="form form-control" id="password"
+              placeholder="Enter Password">
+            <div class="error" *ngIf="registerForm.get('password')?.touched && registerForm.get('password')?.errors">
+              <div class="alert">
+                <p *ngIf="registerForm.get('password')?.errors?.['required']">
+                  Password is required
+                </p>
+                <p *ngIf="registerForm.get('password')?.errors?.['minlength']">
+                  Password must be at least 6 characters
+                </p>
+                <p *ngIf="registerForm.get('password')?.errors?.['pattern']">
+                  Password must contain at least one letter and one number
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="submit-button d-flex justify-content-center">
+          <button type="submit" class="btn btn-primary mt-4">Register</button>
+        </div>
+      </form>
+    </div>
+    <div class="col-6 right-section"></div>
+  </div>
+</div>

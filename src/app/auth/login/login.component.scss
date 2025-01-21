@@ -1,0 +1,52 @@
+.main {
+  height: 40rem;
+  .left-section {
+    margin-top: 6rem;
+    padding-left: 3rem;
+    .title {
+      h1 {
+        font : {
+          size: 4rem;
+          weight: 700;
+        }
+      }
+      span {
+        color: #1dbec5;
+      }
+      p {
+        margin-bottom: 3rem;
+      }
+    }
+  }
+  .right-section {
+    background-image: url(../../../assets/360_F_503690847_6ISwTr8jW2o3466WXYdEZKeGYVIykLlk.jpg);
+    background-size: contain;
+  }
+}
+.email {
+  margin-bottom: 20px;
+  label {
+    margin-bottom: 5px;
+  }
+}
+.password {
+  label {
+    margin-bottom: 5px;
+  }
+}
+.form-control {
+  width: 80%;
+}
+.alert {
+  color: red;
+  width: 80%;
+  height: 30px;
+  margin-top: 10px;
+  padding: 2px 10px;
+  background-color: #f8d7da;
+}
+.submit-button {
+  button {
+    width: 150px;
+  }
+}
