@@ -16,6 +16,7 @@
       border: 2px dashed #ddd;
       border-radius: 10px;
       padding: 20px;
+      position: relative;
       .card-title {
         margin-bottom: 10px;
       }
@@ -29,6 +30,26 @@
           margin-left: 10px;
         }
       }
+      .name-alert {
+        background-color: #f3b0b0;
+        width: 60%;
+        height: 30px;
+        padding-top: 2px;
+        padding-left: 5px;
+        position: absolute;
+        left: 8rem;
+        top: 9rem;
+      }
+      .amount-alert {
+        background-color: #f3b0b0;
+        width: 60%;
+        height: 30px;
+        padding-top: 2px;
+        padding-left: 5px;
+        position: absolute;
+        left: 12rem;
+        top: 14rem;
+      }
     }
   }
   .sub-title {
@@ -36,53 +57,6 @@
     h2 {
       font-weight: bold;
       margin-bottom: 1rem;
-    }
-  }
-  .bud-cards {
-    .bud-card {
-      padding: 15px;
-      border: 1px solid #a00d0d;
-      border-radius: 20px;
-
-      .progress-bar {
-        background-color: #a00d0d;
-      }
-      .min {
-        color: #a00d0d;
-      }
-    }
-    .details-btn {
-      button {
-        background-color: #a00d0d;
-      }
-    }
-  }
-}
-.ex-table {
-  thead {
-    th {
-      font-size: 1.5rem;
-      font-weight: 600;
-    }
-  }
-  tr {
-    td {
-      font-size: 1rem;
-      i {
-        width: 60px;
-        background-color: #f0cfcf;
-        color: #bb3030;
-      }
-    }
-    .cat {
-      .category {
-        border-radius: 10px;
-        width: 80px;
-        margin: 0 auto;
-        background-color: #bb3030;
-        color: #fff;
-        padding: 8px;
-      }
     }
   }
 }

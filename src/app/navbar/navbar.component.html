@@ -5,7 +5,8 @@
     </a>
   </div>
   <div class="user-status">
-    <button class="btn btn-primary login" [routerLink]="'/login'">login</button>
-    <button class="btn btn-primary register" [routerLink]="'/register'">register</button>
+    <button *ngIf="!isMember" class="btn btn-primary login" [routerLink]="['/login']">login</button>
+    <button *ngIf="!isMember" class="btn btn-primary register me-2" [routerLink]="['/register']">register</button>
+    <button *ngIf="isMember" class="btn btn-primary logout" (click)="logUserOut()">logout</button>
   </div>
 </div>

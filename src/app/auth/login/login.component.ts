@@ -41,6 +41,7 @@ export class LoginComponent {
                   'userData',
                   JSON.stringify(response.access_token)
                 );
+            this.auth.decodeUserData();
             console.log('user token updated succ');
             this.router.navigate(['/home']);
           },

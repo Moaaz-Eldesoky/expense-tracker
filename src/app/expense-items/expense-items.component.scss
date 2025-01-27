@@ -1,0 +1,28 @@
+.ex-table {
+  thead {
+    th {
+      font-size: 1.5rem;
+      font-weight: 600;
+    }
+  }
+  tr {
+    td {
+      font-size: 1rem;
+      i {
+        width: 60px;
+        background-color: #f0cfcf;
+        color: #bb3030;
+      }
+    }
+    .cat {
+      .category {
+        border-radius: 10px;
+        width: 80px;
+        margin: 0 auto;
+        // background-color: #bb3030;
+        color: #fff;
+        padding: 5px;
+      }
+    }
+  }
+}

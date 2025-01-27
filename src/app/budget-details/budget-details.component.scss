@@ -6,8 +6,14 @@
     color: #a00d0d;
   }
 }
+.sub-title {
+  margin-top: 1rem;
+  h2 {
+    font-weight: bold;
+    margin-bottom: 1rem;
+  }
+}
 .bud-card {
-  background-color: #1dbec524;
   padding: 23px;
   border: 2px dashed #a00d0d;
   border-radius: 10px;
@@ -18,11 +24,17 @@
   .min {
     color: #a00d0d;
   }
+  .progress-value {
+    height: 30px;
+  }
 }
 .details-btn {
   .delete {
     background-color: #a00d0d;
     margin-right: 10px;
+  }
+  i {
+    margin-left: 5px;
   }
 }
 .outer-border {
@@ -44,6 +56,25 @@
       margin-top: 15px;
       i {
         margin-left: 10px;
+      }
+    }
+  }
+}
+.ex-table {
+  thead {
+    th {
+      font-size: 1.5rem;
+      font-weight: 600;
+    }
+  }
+  tr {
+    td {
+      font-size: 1.25rem;
+      i {
+        width: 60px;
+        background-color: #f0cfcf;
+        color: #bb3030;
+        margin: 5px 0;
       }
     }
   }

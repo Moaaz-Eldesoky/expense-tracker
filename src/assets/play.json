@@ -1,0 +1,16 @@
+[
+  {
+    "amount": 500,
+    "color": "0 65% 50%",
+    "createdAt": 1737535348776,
+    "id": "ecac6b92-4b0b-4edf-990a-f8bdd7771a31",
+    "name": "Food"
+  },
+  {
+    "amount": 100,
+    "budgetId": "ecac6b92-4b0b-4edf-990a-f8bdd7771a31",
+    "createdAt": 1737543332933,
+    "id": "60ca0819-c7ec-458b-af97-1dd37af2462a",
+    "name": "coffee"
+  }
+]
