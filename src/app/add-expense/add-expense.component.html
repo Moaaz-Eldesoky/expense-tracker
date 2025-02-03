@@ -1,27 +1,27 @@
 <div class="add-Expense">
-    <form action="" [formGroup]="expenseForm" (submit)="addExpense()">
-        <h3 class="card-title"> Add Expense</h3>
-        <div class="row">
-            <div class="col-6">
-                <label for="budget-name">Expense Name <span class="text-danger"
-                        *ngIf="expenseForm.get('name')?.touched && expenseForm.get('name')?.errors?.['required']">*required</span></label>
-                <input formControlName="name" name="budget-name" type="text" placeholder="add budget name"
-                    class=" form form-control bud-name">
-            </div>
-            <div class="col-6">
-                <label for="amount">Amount <span class="text-danger"
-                        *ngIf="expenseForm.get('amount')?.touched && expenseForm.get('amount')?.errors?.['required']">*required</span></label>
-                <input formControlName="amount" name="amount" type="number" placeholder="e.g 250"
-                    class=" form form-control amount">
-            </div>
-            <div class="col-12 mt-3" *ngIf="showCategoryList">
-                <label for="category">Budget Category <span class="text-danger"
-                        *ngIf="expenseForm.get('budName')?.touched && expenseForm.get('budName')?.errors?.['required']">*required</span></label>
-                <select formControlName="budName" name="category" class="form form-control">
-                    <option *ngFor="let budget of budList" value="{{budget.name}}">{{budget.name}}</option>
-                </select>
-            </div>
-        </div>
-        <button type="submit" class="btn btn-dark">Add Expense<i class="fas fa-arrow-circle-right"></i></button>
-    </form>
+  <form action="" [formGroup]="expenseForm" (submit)="addExpense()">
+    <h3 class="card-title"> Add Expense</h3>
+    <div class="row">
+      <div class="col-6">
+        <label for="budget-name">Expense Name <span class="text-danger"
+            *ngIf="expenseForm.get('name')?.touched && expenseForm.get('name')?.errors?.['required']">*required</span></label>
+        <input formControlName="name" name="budget-name" type="text" placeholder="add expense name"
+          class=" form form-control bud-name">
+      </div>
+      <div class="col-6">
+        <label for="amount">Amount <span class="text-danger"
+            *ngIf="expenseForm.get('amount')?.touched && expenseForm.get('amount')?.errors?.['required']">*required</span></label>
+        <input formControlName="amount" name="amount" type="number" placeholder="e.g 250"
+          class=" form form-control amount">
+      </div>
+      <div class="col-12 mt-3" *ngIf="detailsBudList">
+        <label for="category">Budget Category <span class="text-danger"
+            *ngIf="expenseForm.get('budName')?.touched && expenseForm.get('budName')?.errors?.['required']">*required</span></label>
+        <select formControlName="budName" name="category" class="form form-control">
+          <option *ngFor="let budget of budgetList" value="{{budget.name}}">{{budget.name}}</option>
+        </select>
+      </div>
+    </div>
+    <button type="submit" class="btn btn-dark">Add Expense<i class="fas fa-arrow-circle-right"></i></button>
+  </form>
 </div>

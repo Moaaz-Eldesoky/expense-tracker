@@ -11,7 +11,7 @@ export class AuthService {
   loginUrl = 'https://api.escuelajs.co/api/v1/auth/login';
   registerUrl = 'https://reqres.in/api/register';
   constructor(private http: HttpClient) {
-    this.decodeUserData();
+    // this.decodeUserData();
   }
   login(email: any, password: any): Observable<any> {
     return this.http.post(this.loginUrl, { email, password });

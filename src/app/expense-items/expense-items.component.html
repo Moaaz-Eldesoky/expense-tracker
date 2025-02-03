@@ -1,20 +1,36 @@
 <div class="ex-table">
-  <table class="table table-striped">
+  <div class="empty-expense" *ngIf="detailsComp && ExpList.length==0">
+    <p class="alert text-center">Empty Expense List</p>
+  </div>
+  <div class="empty-expense" *ngIf="!detailsComp && budgetExpenses.length==0">
+    <p class="alert">Empty Expense for this budget</p>
+  </div>
+  <table class="table table-striped" *ngIf="detailsComp && ExpList.length>0 || !detailsComp && budgetExpenses.length>0">
     <thead>
       <th class="text-center">Name</th>
       <th class="text-center">Amount</th>
       <th class="text-center">Date</th>
-      <th class="text-center" *ngIf="showCat">Budget</th>
+      <th class="text-center" *ngIf="detailsComp">Budget</th>
       <th class="text-center">Remove</th>
     </thead>
-    <tr *ngFor="let exp of ExpList" class="mt-2">
-      <td class="text-center">{{exp.name}}</td>
-      <td class="text-center">{{exp.amount}}</td>
-      <td class="text-center">{{exp.createdAt}}</td>
-      <td class="text-center cat" *ngIf="showCat">
-        <p class="category" [ngStyle]="{'background-color': exp.color}">{{exp.budName}}</p>
-      </td>
-      <td class="text-center " (click)="removeItem(exp.id)"><i class="fas fa-trash-alt btn btn-danger"></i></td>
-    </tr>
+    <ng-container class="rows" *ngIf="detailsComp">
+      <tr *ngFor="let exp of ExpList" class="mt-2">
+        <td class="text-center">{{exp.name}}</td>
+        <td class="text-center">{{exp.amount}}</td>
+        <td class="text-center">{{exp.createdAt}}</td>
+        <td class="text-center cat">
+          <p class="category" [ngStyle]="{'background-color': exp.color}">{{exp.budName}}</p>
+        </td>
+        <td class="text-center " (click)="removeItem(exp.id)"><i class="fas fa-trash-alt btn btn-danger"></i></td>
+      </tr>
+    </ng-container>
+    <ng-container class="rows" *ngIf="!detailsComp">
+      <tr *ngFor="let exp of budgetExpenses" class="mt-2">
+        <td class="text-center">{{exp.name}}</td>
+        <td class="text-center">{{exp.amount}}</td>
+        <td class="text-center">{{exp.createdAt}}</td>
+        <td class="text-center " (click)="removeItem(exp.id)"><i class="fas fa-trash-alt btn btn-danger"></i></td>
+      </tr>
+    </ng-container>
   </table>
 </div>

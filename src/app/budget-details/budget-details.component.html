@@ -1,28 +1,28 @@
 <div class="container-fluid">
-  <div class="main-page">
-    <h1 class="main-title"><span>Food</span> Overview</h1>
+  <div class="main-page" *ngIf="currentbudget">
+    <h1 class="main-title"><span [ngStyle]="{'color': currentbudget.color}">{{currentbudget.name}}</span> Overview</h1>
     <div class="row">
       <div class="col-6">
         <div class="outer-border">
-          <app-budget-card [deleteBudgetBtn]="true" [renameBudgetBtn]="true" [viewDetailsBtn]="false"></app-budget-card>
+          <app-budget-card [deleteBudgetBtn]="true" [renameBudgetBtn]="true" [viewDetailsBtn]="false"
+            [currentCard]="currentbudget"></app-budget-card>
         </div>
       </div>
       <div class="col-6">
         <div class="outer-border">
           <div class="inner-border">
-            <app-add-expense></app-add-expense>
+            <app-add-expense [budgetName]="currentbudget.name"></app-add-expense>
           </div>
         </div>
       </div>
     </div>
     <div class="Expenses">
       <div class="sub-title">
-        <h2><span>Food</span> Expenses</h2>
+        <h2><span>{{currentbudget.name}}</span> Expenses</h2>
       </div>
       <div class="container">
-        <app-expense-items [showCat]="false"></app-expense-items>
+        <app-expense-items [detailsComp]="false" [currentBudget]="currentbudget"></app-expense-items>
       </div>
-
     </div>
   </div>
 </div>

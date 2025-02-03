@@ -1,4 +1,7 @@
 .ex-table {
+  .alert {
+    background-color: #f7c1c1;
+  }
   thead {
     th {
       font-size: 1.5rem;
@@ -17,9 +20,8 @@
     .cat {
       .category {
         border-radius: 10px;
-        width: 80px;
+        width: 100px;
         margin: 0 auto;
-        // background-color: #bb3030;
         color: #fff;
         padding: 5px;
       }

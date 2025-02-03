@@ -26,13 +26,16 @@ import { expense } from '../interfaces/expenseItem.interface';
   styleUrl: './home.component.scss',
 })
 export class HomeComponent {
-  cards: number[] = [1, 2, 3];
   budgetList: budgetItem[] = [];
   expList: expense[] = [];
 
   constructor(private BudExp: BudgetExpenseService) {
-    this.budgetList = BudExp.loadBudgets();
-    this.expList = BudExp.loadExpenses();
+    this.BudExp.budgetListSubject.subscribe(
+      (budgets) => (this.budgetList = budgets)
+    );
+    this.BudExp.expenseListSubject.subscribe(
+      (expenses) => (this.expList = expenses)
+    );
   }
 
   createBudgetForm: FormGroup = new FormGroup({
@@ -49,22 +52,15 @@ export class HomeComponent {
         createdAt: new Date().toISOString(),
       };
       this.budgetList.push(newBudget);
-      this.BudExp.budgetList = this.budgetList;
-      console.log(JSON.stringify(this.BudExp.budgetList));
+      this.BudExp.budgetListSubject.next(this.budgetList);
       this.BudExp.updateBudgets();
       this.createBudgetForm.reset();
     }
   }
 
-  addEx(e: any) {
-    this.expList.push(e);
-    this.BudExp.expenseList = this.expList;
-    this.BudExp.updataExpenses();
-  }
-
   updateEx(e: any) {
     this.expList = e;
-    this.BudExp.expenseList = this.expList;
-    this.BudExp.updataExpenses();
+    this.BudExp.expenseListSubject.next(this.expList);
+    this.BudExp.updateExpenses();
   }
 }

@@ -4,4 +4,6 @@ export interface budgetItem {
   createdAt: string;
   id: number;
   name: string;
+  spent?: number;
+  progress?: number;
 }

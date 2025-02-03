@@ -36,8 +36,7 @@
       <div class="col-6">
         <div class="outer-border">
           <div class="inner-border">
-            <app-add-expense [showCategoryList]="true" [budList]="budgetList"
-              (newExpense)="addEx($event)"></app-add-expense>
+            <app-add-expense [detailsBudList]="true"></app-add-expense>
           </div>
         </div>
       </div>
@@ -58,7 +57,7 @@
         <h2>Recent Expenses</h2>
       </div>
       <div class="container">
-        <app-expense-items [showCat]="true" [ExpList]="expList" (updatedEx)="updateEx($event)"></app-expense-items>
+        <app-expense-items [detailsComp]="true"></app-expense-items>
 
       </div>
 

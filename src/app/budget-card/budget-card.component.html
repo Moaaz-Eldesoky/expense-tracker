@@ -1,23 +1,27 @@
 <div class="bud-card" [ngStyle]="{'border-color': currentCard.color}">
   <div class="head d-flex justify-content-between">
-    <h3>{{currentCard.name}}</h3>
+    <input #inputField [disabled]="disRename" class="budName" type="text" name="budName" value="{{currentCard.name}}">
     <p>{{currentCard.amount}} EG</p>
   </div>
   <div class="progress my-3" style="height: 20px;">
-    <div class="progress-bar" role="progressbar" style="width: 5%;" [ngStyle]="{'background-color': currentCard.color}"
-      aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
+    <div class="progress-bar" role="progressbar"
+      [ngStyle]="{'background-color': currentCard.color, 'width': currentCard.progress + '%'}" aria-valuenow="50"
+      aria-valuemin="0" aria-valuemax="100"></div>
   </div>
   <div class="progress-value d-flex justify-content-between">
-    <p class="min">EG-50.00 spent</p>
-    <p class="max">EG-950.0 remaining</p>
+    <p class="min">EG-{{currentCard.spent}} spent</p>
+    <p class="max">EG-{{currentCard.amount-currentCard.spent!}} remaining</p>
   </div>
   <div class="d-flex justify-content-center details-btn">
     <button *ngIf="viewDetailsBtn" name="view" class="btn btn-danger details-btn "
       [ngStyle]="{'background-color': currentCard.color}" (click)="viewDetails()">View Details <i
         class="fas fa-eye"></i></button>
-    <button *ngIf="deleteBudgetBtn" name="view" class="btn btn-danger details-btn delete me-2">Delete Budget <i
-        class="fas fa-trash-alt"></i></button>
-    <button *ngIf="renameBudgetBtn" name="rename" class="btn btn-warning details-btn">Rename Budget <i
-        class="fas fa-edit"></i></button>
+    <button *ngIf="deleteBudgetBtn" name="view" class="btn btn-danger details-btn delete me-2"
+      (click)="deleteBudget()">Delete Budget <i class="fas fa-trash-alt"></i></button>
+    <button *ngIf="renameBudgetBtn" name="rename" class="btn btn-warning details-btn" [ngClass]="{'hide':!disRename}"
+      (click)="activeRename()">Rename
+      Budget <i class="fas fa-edit"></i></button>
+    <button *ngIf="renameBudgetBtn" name="Submit" class="btn btn-success details-btn" [ngClass]="{'hide':disRename}"
+      (click)="renameBudget(inputField)">Submit <i class="fas fa-check"></i></button>
   </div>
 </div>

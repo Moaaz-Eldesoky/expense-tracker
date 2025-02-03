@@ -2,6 +2,16 @@
   padding: 15px;
   border: 1px solid #a00d0d;
   border-radius: 20px;
+  .budName {
+    background-color: transparent;
+    border: none;
+    padding-left: 5px;
+    font-size: 25px;
+    font-weight: 600;
+  }
+  .hide {
+    display: none;
+  }
 
   .progress-bar {
     background-color: #a00d0d;

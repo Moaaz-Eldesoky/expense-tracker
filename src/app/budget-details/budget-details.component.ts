@@ -5,6 +5,7 @@ import { ActivatedRoute } from '@angular/router';
 import { BudgetCardComponent } from '../budget-card/budget-card.component';
 import { ExpenseItemsComponent } from '../expense-items/expense-items.component';
 import { BudgetExpenseService } from '../services/budget-expense.service';
+import { budgetItem } from '../interfaces/budgetItem.interface';
 
 @Component({
   selector: 'app-budget-details',
@@ -18,9 +19,8 @@ import { BudgetExpenseService } from '../services/budget-expense.service';
   styleUrl: './budget-details.component.scss',
 })
 export class BudgetDetailsComponent implements OnInit {
-  cards: number[] = [1, 2, 3];
   cardId: any;
-  currentbudget: any;
+  currentbudget!: budgetItem | undefined;
   constructor(
     private route: ActivatedRoute,
     private budEX: BudgetExpenseService
@@ -28,8 +28,9 @@ export class BudgetDetailsComponent implements OnInit {
   ngOnInit() {
     this.route.params.subscribe((params) => {
       this.cardId = +params['id']; // The '+' converts the string to a number
-      this.currentbudget = this.budEX.budgetList.filter(
-        (e) => e.id === this.cardId
+      this.budEX.budgetListSubject.subscribe(
+        (budgets) =>
+          (this.currentbudget = budgets.find((e) => e.id === this.cardId))
       );
     });
   }
