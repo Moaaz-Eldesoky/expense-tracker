@@ -28,9 +28,17 @@ export class AuthService {
     return !!localStorage.getItem('userData');
   }
   decodeUserData() {
-    let encodedToken = JSON.stringify(localStorage.getItem('userData'));
-    let decodedToken = jwtDecode(encodedToken);
-    console.log(this.userData);
-    this.userData.next(decodedToken);
+    const encodedToken = localStorage.getItem('userData');
+    if (encodedToken) {
+      try {
+        const decodedToken = jwtDecode(encodedToken);
+        this.userData.next(decodedToken);
+      } catch (error) {
+        console.error('Error decoding token:', error);
+        this.userData.next(null);
+      }
+    } else {
+      this.userData.next(null);
+    }
   }
 }
